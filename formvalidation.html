@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+    <head>
+        <script>
+            function validate(){
+       console.log("Calling validate function")
+       var username=document.getElementById("userName")
+       console.log(username.value)
+       console.log(username.value.length)
+       if(username.value==''){
+           console.log("Please Enter Username")
+           var errorUserName=document.getElementById("errorUserName")
+           errorUserName.innerHTML="Please Enter Username"
+           errorUserName.style.color='red'
+       }
+       var email=document.getElementById("email")  
+       console.log(email.value)
+       if(email.value==''){
+           console.log("Please Enter Email")
+           var email=document.getElementById("Email")
+          email.innerHTML="Please Enter Email"
+          email.style.color='red'
+       }
+
+       var pasword=document.getElementById("Pasword")  
+       console.log(pasword.value)
+       if(pasword.value==''){
+           console.log("Please Enter Pasword")
+           var errorpasword=document.getElementById("errorPasword")
+           errorpasword.innerHTML="Please Enter Pasword"
+           errorpasword.style.color='red'
+       }
+            
+            var gender = document.formRegister.gender
+            console.log(gender)
+            console.log(gender[0])
+            console.log(gender[1])
+            console.log(gender[2])
+            console.log(gender[0].checked)
+            console.log(gender[1].checked)
+            console.log(gender[2].checked)
+            
+            if(gender[0].checked==false&&gender[1].checked==false&&gender[2].checked==false){
+                console.log("please select gender")
+            }
+                var city = document.class=formRegister.city
+                console.log(city)
+                if(city.value=="0"){
+                    console.log('please select city')
+                    var errorcity=document.getElementById('errorcity')
+                    errorcity.innerHTML='plase select city'
+                    errorcity.style.color='red'
+                }
+
+                 //STORAGE LOCALSTORAGE,SESSION STORAGE
+                 // username
+                  //email
+                 // pasword
+                  //gender
+                  //city
+                  // //
+                  console.log(username.value)
+                  console.log(pasword.value)
+                  console.log(email.value)
+
+                   var obj ={
+                       "userName":userName.value,
+                       "Email":email.value,
+                       "password":pasword.value,
+                   }
+                   console.log(obj)
+                   localStorage.setItem("javascript","storage in localstorage")
+                   var objstring = JSON.stringify(obj)
+                   console.log(objstring)
+                   localStorage.setItem("xworkzuser",objstring)
+                   localStorage.getItem("xworkzuser")
+                  }
+            </script>
+
+    </head>
+    <body>
+     <!--form ---->
+    <form name="formRegister">
+        <div>
+            <label>Enter Username</label>
+            <input type="text"name="username" id="userName">
+            <span id="errorUserName"></span>
+        </div>
+        <div>
+            <label>Enter email</label>
+            <input type="email"name="email" id="email">
+            <span id="Email"></span>
+        </div>
+        <div>
+            <label>Enter pasword</label>
+            <input type="Pasword"name="Pasword" id="Pasword">
+            <span id="errorPasword"></span>
+
+        </div>
+
+        <div>
+            <label>select Gender</label>
+            <input type="radio"name="gender">male
+            <input type="radio"name="gender">female
+            <input type="radio"name="gender">others
+        </div>
+        <div>
+            <label>select city</label>
+            <select name="city">
+                <option value="0">---select city----</option>
+                <option>Bangalor</option>
+                <option>Bagalkot</option>
+                <option>kolar</option>
+                <option>Bidar</option>
+                <option>vijayapur</option>
+                <option>chamaraj</option>
+                <option>mangalor</option>
+                <option>shivamog</option>
+            </select>
+            <span id ="errorcity"></span>
+        </div>
+       <button type="button" onclick="validate()">Register</button>
+        <button type="reset">Reset</button>
+        </form>
+    </body>
+</html>
