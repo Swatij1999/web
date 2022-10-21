@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+    <head>
+        <script>
+            function Login(){
+                var email = document.getElementById("email")
+                var password=document.getElementById("password")
+               console.log(email.value)
+                console.log(password.value)
+
+                var registeredUser = localStorage.getItem("xworkzuser")
+                console.log(registeredUser)
+
+                //console.log(registeredUser.email)
+
+                var registeredObj = JSON.parse(registeredUser)
+
+                //logic for comparing the values
+                //Email, password matching print Login success
+                //Email, password notmaching print Email or password is incorrect
+
+                //compare values in javascript
+
+                console.log(registeredObj)
+
+                if(email.value==registeredObj.Email && password.value==registeredObj.password){
+                    console.log("Login success")
+                    window.location.href = "https://facebook.com"
+                    window.location.href = "./index.html"
+                    //navigate to html page
+                } else {
+                    console.log("Invalid email or password")
+                }
+
+            }
+        </script>
+
+    </head>
+    <body>
+        <form>
+            <div>
+                <label>Enter Email</label>
+                <input type="email" name="email" id="email">
+            </div>
+            <div>
+                <label>Enter password</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <button type="button" onclick ="Login()">Login</button>
+            <button>Reset</button>
+        </form>
+    </body>
+
+</html>
